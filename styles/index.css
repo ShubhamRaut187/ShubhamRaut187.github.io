@@ -1,4 +1,4 @@
- /* body{
+  /* body{
             margin: 0;
             padding: 0;
             border: 2px solid black;
@@ -336,7 +336,7 @@ figure{
     position: relative;
     left: 0;
     width: 400%; /* width dikali slide */
-    animation: 30s slide infinite;
+    animation: 30s slide2 infinite;
 }
 
 .slide{
@@ -360,7 +360,7 @@ figure{
     height: 500px;
 }
 
-@keyframes slide{
+@keyframes slide2{
     0%{
         left:0;
     }

@@ -42,7 +42,7 @@
             <hr class="about_card_line">
             <h3>A Web Developer Located in Our Lovely Earth</h3>
             <p id="user-detail-intro">A pasionate MERN Stack developer. Developing websites using HTML, CSS, Javascript, ReactJS, Node.js, Express.js and MongoDB. Looking forward to the opportunities that can bring challenges and learning to leverage and hone skills</p>
-            <button id="resume-button-2">Download Resume</button>
+            <button>Download Resume</button>
         </div>
         <div class="about_card">
             <h2>More about me.</h2>
@@ -251,9 +251,23 @@
             </div>
         </div>
     </div>
-    <h1 class="Section_Headings"><i class="fa-regular fa-address-card fa-bounce fa-lg" style="color: #333333ff;"></i></i>&nbsp;&nbsp;Contact Me</h1>
 </body>
 </html>
 <script>
-   
+    // Project-1
+    let Power_House_images=["./PH_1.jpg","./PH_2.jpg"]
+    let project1_index=1;
+    let project = (arr,index)=>{
+        alert();
+        let image = document.querySelector(".project-img");
+        image.setAttribute("src",arr[index]);
+        index++;
+        if(index == arr.length){
+            index = 0;
+        }
+
+    }
+    document.querySelector(".slider").addEventListener("click",()=>{
+        project(Power_House_images,project1_index);
+    })
 </script>
