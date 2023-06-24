@@ -1,0 +1,466 @@
+ /* body{
+            margin: 0;
+            padding: 0;
+            border: 2px solid black;
+        } */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #home{
+            width: 100%;
+            background-color: #e2e2e2ff;
+            height: 500px;
+            /* border: 2px solid black; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        #home > h2{
+            margin-bottom: 0px;
+            color: #333333ff;
+        }
+        #user-detail-name{
+            margin-top: 0px;
+            color: #333333ff;
+            font-size: 50px;
+        }
+        .wrapper{
+            display: flex;
+        }
+        .static-txt{
+            color: #333333ff;
+            font-size: 40px;
+            font-weight: 400;
+        }
+        .wrapper .dynamic-txts{
+            margin-top: 0px;
+            margin-left: 15px;
+            line-height: 51px;
+            height: 50px;
+            overflow: hidden;
+        }
+        .dynamic-txts li{
+            position: relative;
+        }
+        .dynamic-txts li{
+            list-style: none;
+            color:#333333ff;
+            font-size: 40px;
+            font-weight: 400;
+            position: relative;
+            top: 0;
+            animation: slide 35s steps(7) 
+            infinite;
+            
+        }
+
+        @keyframes slide{
+            100%{
+                top: -360px;
+            }
+        }
+        .dynamic-txts li::after{
+            content: "";
+            left: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-left: 2px solid #333333ff;
+            background-color: #e2e2e2ff;
+            animation: typing 5s steps(20)
+            infinite;
+        }
+
+
+    @keyframes typing{
+        40%,
+        60%{
+            left: calc(100% + 30px);
+        }
+        100%{
+            left: 0;
+        }
+    }
+
+    /* Navbar */
+    #nav-menu{
+        width: 100%;
+        height: 70px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+       
+    }
+    #imagediv{
+        width: 10%;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        height: 200%;
+        border-radius: 50%;
+        padding: 0px;
+        
+        
+    }
+    #ProfileImage{
+        width: 100%;
+        border-radius: 50%;
+        height: 100%;
+    }
+    #nav-menu > button{
+        width: 7%;
+        height: 30px;
+        border: none;
+        background-color: white;
+        color: #333333ff;
+        font-weight: 600;
+        font-size: 16px;
+        
+    }
+    #nav-menu > button:hover{
+        color: #e6154eff;
+    }
+    .Section_Headings{
+       margin-top: 40px;
+       margin-bottom: 10px;
+       margin-left: 20px;
+       color: #333333ff;
+       
+    }
+    .Section_Headings_Description{
+        font-size: 16px;
+        color: #333333ff;
+        text-align: justify;
+        margin-bottom: 20px;
+    
+    }
+    
+    /* About Section */
+    #about{
+        display: grid;
+        width: 98%;
+        grid-template-columns: repeat(3,1fr);
+        margin: 20px auto;
+        gap: 15px;
+        margin: 20px auto;
+    }
+    .about_card{
+        border: 1px solid gray;
+    
+        height: 400px;
+        padding: 35px;
+        /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .about_card > h2{
+        margin-bottom: 20px;
+        color: #333333ff;
+    }
+    .about_card_line{
+        width: 30%;
+        height: 2px;
+        background-color: #333333ff;
+        margin-bottom: 40px;
+       
+    }
+    .about_card > h3{
+        margin-bottom: 10px;
+        color: #333333ff;
+
+    }
+    .about_card > p{
+        text-align: justify;
+        color: #333333ff;
+        margin-bottom: 5px;
+    }
+    .about_card > button{
+        width: 40%;
+        height: 35px;
+        border: 1px solid #f1588aff;
+        border-radius: 8px;
+        color: #f1588aff;
+        font-weight: 400;
+        background-color: white;
+        margin-top: 20px;
+        
+    }
+    .about_card > button:hover{
+        background-color: #f1588aff;
+        color: white;
+    }
+    .about_card_head{
+        font-weight: 600;
+    }
+    .icons_div{
+        margin-top: 20px;
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .education_card{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 90%;
+        /* height: 50px; */
+        /* border-bottom: 1px solid gray; */
+        margin-bottom: 15px;
+    }
+    .education_card_head{
+       color: #333333ff;
+       font-weight: 600;
+    }
+    .education_card_description {
+        font-weight: 100;
+        text-align: justify;
+    }
+
+    /* Skills */
+    #skills{
+        padding: 10px;
+        width: 98%;
+        margin: 15px auto;
+        border: 1px solid gray;
+        border-radius: 8px;
+        /* background-image: url("https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif"); */
+    }
+    #skills > h2{
+        color: #333333ff;
+        margin-top: 40px;
+    }
+    #front_end_skills{
+        /* border: 1px solid gray; */
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        gap: 15px;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    #back_end_skills{
+        display: grid;
+        /* border: 1px solid gray; */
+        grid-template-columns: repeat(6,1fr);
+        gap: 15px;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    #tools_skills{
+        display: grid;
+        /* border: 1px solid gray; */
+        grid-template-columns: repeat(6,1fr);
+        gap: 15px;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .skills-card{
+        /* border: 1px solid gray; */
+        border-radius: 8px;
+       box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+    .skills-card-img{
+        width: 50%;
+        height: 50%;
+        margin-bottom: 15px;
+    }
+    .skills-card-name{
+        color: #333333ff;
+        font-size: 16px;
+    }
+
+
+    /* Projects */
+    #project{
+        width: 98%;
+        /* border: 2px solid black; */
+       margin: 20px auto;
+       display: grid;
+       grid-template-columns: repeat(2,1fr);
+       gap: 15px;
+    }
+    .project-card{
+        border: 1px solid gray;
+        border-radius: 8px;
+        padding: 25px;
+        /* background-image: url("https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif"); */
+    }
+    
+    .project-title{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: #333333ff;
+    }
+    .project_card_span_head{
+        font-weight: 600;
+        color: #333333ff;
+    }
+    .project-description{
+        color: #333333ff;
+    }
+    .project-tech-stack{
+        color: #333333ff;
+    }
+    .project-github-link{
+        color: #333333ff;
+        text-decoration: none;
+        
+    }
+    
+    .project-img{
+        width: 100%;
+        height: 100%;
+    }
+    /* Project Slider */
+    .slider{
+    width: 98%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: auto;
+    }
+
+figure{
+    position: relative;
+    left: 0;
+    width: 400%; /* width dikali slide */
+    animation: 30s slide infinite;
+}
+
+.slide{
+    position: relative;
+    width: 25%; /* width dibagi slide */
+    float: left;
+}
+
+.slide h1{
+    position: absolute;
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.slide img{
+    width: 100%;
+    height: 500px;
+}
+
+@keyframes slide{
+    0%{
+        left:0;
+    }
+    10%{
+        left:0;
+    }
+    20%{
+        left:-100%;
+    }
+    30%{
+        left:-100%;
+    }
+    40%{
+        left:-200%;
+    }
+    50%{
+        left:-200%;
+    }
+    55%{
+        left:-300%;
+    }
+    65%{
+        left:-300%;
+    }
+    66%{
+        left:-200%;
+    }
+    74%{
+        left:-200%;
+    }
+    75%{
+        left:-100%;
+    }
+    85%{
+        left:-100%;
+    }
+    90%{
+        left:0;
+    }
+    1000%{
+        left:0;
+    }
+}
+
+
+
+    /* Media Query Medium Screen*/
+    @media screen and (min-width: 768px) and (max-width: 1023px){
+        
+    } 
+    /* Media Queries Mobile Screen */
+    @media screen and (max-width:767px){
+        #home > h2{
+            font-size: 20px;
+        }
+        #user-detail-name{
+            font-size: 30px;
+        }
+        .static-txt{
+            font-size: 20px;
+            margin-top: 13px;
+        }
+        .wrapper .dynamic-txts{
+            margin-top: 0px;
+            line-height: 51px;
+        }
+        .dynamic-txts li{
+            font-size: 20px;
+        }
+        /* About */
+        #about{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+        }
+
+
+        /* Skills */
+        #Skills_Main{
+            width: 90%;
+        }
+        #front_end_skills{
+            grid-template-columns: repeat(2,1fr);
+        }
+        #back_end_skills{
+            grid-template-columns: repeat(2,1fr);
+        }
+        #tools_skills{
+            grid-template-columns: repeat(2,1fr)
+        }
+
+        /* Projects */
+        #project{
+            grid-template-columns: repeat(1,1fr);
+        }
+        .slider{
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+        }
+        .project-card{
+            padding: 10px;
+        }
+    }
