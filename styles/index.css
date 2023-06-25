@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Times New Roman', Times, serif;
+            
         }
         #home{
             width: 100%;
@@ -21,10 +22,12 @@
             align-items: center;
             justify-content: center;
             
+          
         }
         #home > h2{
             margin-bottom: 0px;
             color: #333333ff;
+            
         }
         #user-detail-name{
             margin-top: 0px;
@@ -98,19 +101,23 @@
         justify-content: space-evenly;
         align-items: center;
        background-color: white;
+       position: sticky;
+       top: 0;
+       
     }
+    
     #imagediv{
-        width: 10%;
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-        height: 200%;
-        border-radius: 50%;
+        width: 30%;
+        /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+        height: 100%;
+        /* border-radius: 50%; */
         padding: 0px;
         
         
     }
     #ProfileImage{
         width: 100%;
-        border-radius: 50%;
+        /* border-radius: 50%; */
         height: 100%;
     }
     #nav-menu > button{
@@ -290,7 +297,7 @@
 
 
     /* Projects */
-    #project{
+    #projects{
         width: 98%;
         /* border: 2px solid black; */
        margin: 20px auto;
@@ -601,7 +608,7 @@ figure{
         }
 
         /* Projects */
-        #project{
+        #projects{
             grid-template-columns: repeat(1,1fr);
         }
         .slider{
