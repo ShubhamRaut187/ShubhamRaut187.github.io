@@ -6,6 +6,9 @@
         /* body{
             background-color: #da3945;
         } */
+        html{
+            scroll-behavior: smooth;
+        }
         *{
             margin: 0;
             padding: 0;
@@ -120,7 +123,7 @@
         /* border-radius: 50%; */
         height: 100%;
     }
-    #nav-menu > button{
+    #nav-menu > a{
         width: 7%;
         height: 30px;
         border: none;
@@ -128,6 +131,10 @@
         color: #333333ff;
         font-weight: 600;
         font-size: 16px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         
     }
     #nav-menu > button:hover{
@@ -192,7 +199,7 @@
         color: #333333ff;
         margin-bottom: 5px;
     }
-    .about_card > button{
+    .about_card > a{
         width: 40%;
         height: 35px;
         border: 1px solid #f1588aff;
@@ -201,9 +208,13 @@
         font-weight: 400;
         background-color: white;
         margin-top: 20px;
-        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        text-decoration: none;
     }
-    .about_card > button:hover{
+    .about_card > a:hover{
         background-color: #f1588aff;
         color: white;
     }
@@ -457,18 +468,24 @@ figure{
     margin-bottom: 20px;
     color: #333333ff;
 }
-#resume-button-2{
+#resume-link-1{
     width: 40%;
     height: 35px;
-    border-radius: 8px;
-    margin: 20px auto;
-    background-color: white;
     border: 1px solid #f1588aff;
+    border-radius: 8px;
     color: #f1588aff;
+    font-weight: 400;
+    background-color: white;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
    
 
 }
-#resume-button-2:hover{
+#resume-link-1:hover{
     background-color: #f1588aff;
     color: white;
 }
