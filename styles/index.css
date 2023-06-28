@@ -25,7 +25,14 @@
             align-items: center;
             justify-content: center;
             
-          
+        
+        }
+        .home-img{
+            width: 10%;
+            height: 150px;
+            border-radius: 50%;
+            border-bottom: 8px solid #333333ff;
+            /* margin-left: 30%; */
         }
         #home > h2{
             margin-bottom: 0px;
@@ -349,6 +356,11 @@
         width: 100%;
         height: 100%;
     }
+    .project-deployed-link{
+        color: #333333ff;
+        text-decoration: none;
+        margin-left: 15px;
+    }
     /* Project Slider */
     .slider{
     width: 98%;
@@ -446,7 +458,7 @@ figure{
     padding: 35px;
     border-radius: 8px;
 }
-.home-img{
+.resume_card_img{
     width: 30%;
     height: 150px;
     border-radius: 50%;
@@ -563,19 +575,21 @@ figure{
 #github{
     /* border: 2px solid black; */
     width: 98%;
-    height: 200px;
+    height: 400px;
     margin: 20px auto;
     /* padding: 15px; */
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    /* gap: 10px; */
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
 }
 #github > div{
    height: 200px;
-    /* border: 2px solid salmon; */
+   border: 1px solid gray;
+   border-radius: 8px;
 }
 #github-top-langs{
    width: 100%;
+   /* border: 2px solid black; */
    height: 100%;
 }
 #github-stats-card{
@@ -586,6 +600,10 @@ figure{
     width: 100%;
    height: 100%;
    
+}
+.react-activity-calendar{
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -721,6 +739,9 @@ form{
         #home > h2{
             font-size: 20px;
         }
+        .home-img{
+            width: 30%;
+        }
         #user-detail-name{
             font-size: 30px;
         }
@@ -778,9 +799,11 @@ form{
         #github{
             width: 95%;
             grid-template-columns: repeat(1,1fr);
-            height: 600px;
+            height: 800px;
         }
-       
+        #github > div{
+            border: none;
+        }
         /* Contact */
         #contact{
             grid-template-columns: repeat(1,1fr);
