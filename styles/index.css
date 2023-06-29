@@ -612,10 +612,16 @@ figure{
    
 }
 .react-activity-calendar{
+    /* height: 100%;
+    width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calender{
     height: 100%;
     width: 100%;
 }
-
 
 /* contacts */
 #contact{
