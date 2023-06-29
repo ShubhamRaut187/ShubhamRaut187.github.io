@@ -43,7 +43,7 @@
             <hr class="about_card_line">
             <h3>A Web Developer Located in Our Lovely Earth</h3>
             <p id="user-detail-intro">A pasionate MERN Stack developer. Developing websites using HTML, CSS, Javascript, ReactJS, Node.js, Express.js and MongoDB. Looking forward to the opportunities that can bring challenges and learning to leverage and hone skills</p>
-            <button id="resume-button-2"><a href="./Shubham Raut.pdf" download target="_blank" id="resume-link-2">Download Resume</a></button>
+            <button id="resume-button-2">Download Resume</button>
         </div>
         <div class="about_card">
             <h2>More about me.</h2>
@@ -272,7 +272,7 @@
                 <a href="https://www.facebook.com/profile.php?id=100011017964646&mibextid=LQQJ4d"><i class="fa-brands fa-square-facebook fa-beat-fade fa-lg" style="color: #333333ff;"></i></a>
                 <a href=""><i class="fa-brands fa-instagram fa-beat-fade fa-xl" style="color: #333333ff;"></i></a>
             </div>
-           <button id="resume-button-1"><a href="./Shubham Raut.pdf" download id="resume-link-1" target="_blank" >Download Resume</a></button>
+           <button id="resume-button-1">Download Resume</button>
             <div class="animation_image">
                 <img src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" alt="">
             </div>
@@ -345,7 +345,7 @@
     <h1 class="Section_Headings"><i class="fa-brands fa-square-github fa-bounce fa-xl" style="color:#333333ff;"></i></i>&nbsp;&nbsp;Github</h1>
     <div id="github">
         <div>
-            <img class="react-activity-calendar" src="https://ghchart.rshah.org/ShubhamRaut187" alt="git" >
+            <img class="react-activity-calendar" src="https://ghchart.rshah.org/?username=ShubhamRaut187" alt="git" >
         </div>
         <div>
             <img  id="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=ShubhamRaut187&show_icons=true&theme=flag-india" alt="git">
@@ -404,5 +404,20 @@
 </body>
 </html>
 <script>
+   let downloadresume  = (link_id)=>{
+    window.open("https://drive.google.com/file/d/13bKNQ8VHsmb8CIyk7OtyeG4c6aPcKfJ-/view?usp=drive_link","_blank");
+   let anchor = document.createElement("a");
+   anchor.setAttribute("href","./ShubhamRaut.pdf");
+   anchor.setAttribute("download","./ShubhamRaut.pdf");
+   anchor.setAttribute("id",link_id);
+   anchor.click();
+   }
+   
+   document.getElementById("resume-button-1").addEventListener("click",()=>{
+    downloadresume("resume-link-1")
+   })
+   document.getElementById("resume-button-2").addEventListener("click",()=>{
+    downloadresume("resume-link-2")
+   })
    
 </script>
