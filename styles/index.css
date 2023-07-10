@@ -231,7 +231,7 @@
         text-decoration: none;
         color: #f1588aff;
     }
-    .about_card > a:hover{
+    #resume-button-2:hover{
         background-color: #f1588aff;
         color: white;
     }
@@ -374,7 +374,7 @@
     /* Project Slider */
     .slider{
     width: 98%;
-    height: 300px;
+    height: 450px;
     overflow: hidden;
     border-radius: 8px;
     margin: auto;
@@ -384,7 +384,7 @@ figure{
     position: relative;
     left: 0;
     width: 400%; /* width dikali slide */
-    animation: 30s slide2 infinite;
+    animation: 50s slide2 infinite;
 }
 
 .slide{
