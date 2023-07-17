@@ -35,7 +35,7 @@
         </div> -->
         <a href="#projects" class="nav-link projects">Projects</button>
         <a href="#contact" class="nav-link contact">Contact</a>
-        <a href="#resume" class="nav-link resume" >Resume</a>
+        <a href="#resume" id="resume_download_1" nav-link resume" >Resume</a>
     </div>
     <h1 class="Section_Headings" id="About_Heading"><i class="fa-solid fa-user fa-bounce fa-lg" style="color: #333333ff;"></i>&nbsp;&nbsp;About</h1>
     <div id="about" class="about section">
@@ -423,6 +423,9 @@
     downloadresume("resume-link-1")
    })
    document.getElementById("resume-button-2").addEventListener("click",()=>{
+    downloadresume("resume-link-2")
+   })
+   document.getElementById("resume_download_1").addEventListener("click",()=>{
     downloadresume("resume-link-2")
    })
    
