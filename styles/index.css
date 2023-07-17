@@ -108,11 +108,13 @@
         height: 70px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
        background-color: white;
        position: sticky;
        top: 0;
+       /* bottom: 0; */
+       overflow: hidden;
        
     }
     
@@ -374,12 +376,15 @@
     /* Project Slider */
     .slider{
     width: 98%;
-    height: 450px;
+    /* height: 450px; */
     overflow: hidden;
     border-radius: 8px;
     margin: auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     }
-
+.slider > img{
+    width: 100%;
+}
 figure{
     position: relative;
     left: 0;
@@ -752,6 +757,16 @@ form{
     } 
     /* Media Queries Mobile Screen */
     @media screen and (max-width:767px){
+        #nav-menu > a{
+            width: 5%;
+            font-size: 14px;
+        }
+        #nav-menu{
+            position: sticky;
+            top: 0;
+        }
+
+        
         #home > h2{
             font-size: 20px;
         }
