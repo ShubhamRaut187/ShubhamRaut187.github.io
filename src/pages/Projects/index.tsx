@@ -2,11 +2,6 @@ import React from 'react'
 import PageWrapper from '../../components/PageWrapper';
 import styled from 'styled-components';
 import { Typography } from '@mui/material';
-import ProjectCard from '../../components/ProjectCard';
-
-const StyledContentWrapper = styled.div`
-    margin: 20px auto;
-`;
 
 const StyledCompoanyProjectsContainer = styled.div`
     margin: 20px auto;
@@ -39,9 +34,6 @@ const Projects: React.FC = () => {
         <Typography variant='h3' component='div' sx={{ color: '#FFFFFF', fontWeight: 600}}>
             Projects
         </Typography>
-        {/* <StyledContentWrapper>
-            <ProjectCard />
-        </StyledContentWrapper> */}
         <StyledCompoanyProjectsContainer>
             <StyledCompanyProjectCard>
                 <div>

@@ -7,7 +7,6 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import { Typography } from '@mui/material';
 import styled from 'styled-components';
-import ImageContainer from '../ImageContainer';
 
 interface TimelineData {
     logo: string;

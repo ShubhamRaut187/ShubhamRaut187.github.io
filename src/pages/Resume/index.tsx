@@ -1,7 +1,7 @@
 import React from 'react'
 import PageWrapper from '../../components/PageWrapper';
 import AppButton from '../../components/Button';
-import { Typography, Button } from '@mui/material';
+import { Typography } from '@mui/material';
 import styled from 'styled-components';
 import Timeline from '../../components/TimeLine';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
