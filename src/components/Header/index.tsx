@@ -171,7 +171,7 @@ const Header: React.FC = () => {
             >
               {
                 pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <MenuItem onClick={handleCloseNavMenu}>
                     <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                     </MenuItem>
                 ))
@@ -188,7 +188,6 @@ const Header: React.FC = () => {
             {
                 pages.map((page) => (
                 <StyledButton
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block', textTransform: 'none' }}
                 >

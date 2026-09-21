@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import ImageContainer from '../ImageContainer';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkIcon from '@mui/icons-material/Link';

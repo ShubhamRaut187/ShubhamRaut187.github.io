@@ -1,19 +1,17 @@
 import './App.css'
-import React, { useEffect, useRef } from 'react'
+// import React, { useEffect, useRef } from 'react'
 import Header from './components/Header'
 import AnimatedCursor from "react-animated-cursor";
 import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
 import Resume from './pages/Resume';
-import Welcome from './Audio/welcome.mp3'
 import Contact from './pages/Contact'; 
-import Gallery from './pages/Gallery';
 import Projects from './pages/Projects';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  // const buttonRef = useRef<HTMLButtonElement>(null);
   // useEffect(() => {
   //   if (buttonRef.current) {
   //     buttonRef.current.click();
@@ -30,7 +28,7 @@ const App: React.FC = () => {
         {/* <button ref={buttonRef} onClick={playSound}>
        
       </button> */}
-       {/* <AnimatedCursor
+       <AnimatedCursor
         color="255, 255, 255"
         innerSize={8}
         outerSize={35}
@@ -41,14 +39,13 @@ const App: React.FC = () => {
           mixBlendMode: 'exclusion'
         }}
         showSystemCursor={false}
-      /> */}
+      />
       <Header/>
       <Home/>
       <About/>
       <Skills />
       <Resume />
       <Projects />
-      {/* <Gallery/> */}
       <Contact/>
       <Footer/>
     </div>
