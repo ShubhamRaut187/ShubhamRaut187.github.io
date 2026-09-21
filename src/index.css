@@ -1,5 +1,6 @@
  :root {
-   font-family: "Kumbh Sans" serif;
+   /* font-family: "Kumbh Sans" serif; */
+   font-family: "Inter" serif;
   /*line-height: 1.5;
   font-weight: 400;
 
@@ -11,7 +12,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  background-color: #08233b;
+  /* background-color: #08233b; */
+  background-color: #121417;
 }
 /*
 a {

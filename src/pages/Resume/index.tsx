@@ -1,5 +1,6 @@
 import React from 'react'
 import PageWrapper from '../../components/PageWrapper';
+import AppButton from '../../components/Button';
 import { Typography, Button } from '@mui/material';
 import styled from 'styled-components';
 import Timeline from '../../components/TimeLine';
@@ -24,7 +25,7 @@ const StyledResumeContentWrapper = styled.div`
 const StyledWorkContentWrapper = styled.div`
     width: 48%;
     border-radius: 20px;
-    height: 950px;
+    height: 640px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -40,37 +41,30 @@ const StyledWorkContentWrapper = styled.div`
     }
 `;
 
-const StyledDownloadButton = styled(Button)`
-    text-transform: none !important;
-    border-color: #E51C4A !important;
-    background-color: #E51C4A !important;
-    color: #FFFFFF !important;
-    font-family: "Kumbh Sans", serif !important;
-    margin: 30px auto auto 25px !important;
-    box-shadow: none !important;
-`;
-
 
 const Resume: React.FC = () => {
   return (
     <PageWrapper>
-        <Typography variant='h3' component='div' sx={{ color: '#808080', fontWeight: 600}}>
-            Career & Learning
+        <Typography variant='h2' component='div' sx={{ fontWeight: 700 }}>
+            Career & Learnings.
         </Typography>
         <StyledResumeContentWrapper>
             <StyledWorkContentWrapper>
-                <Typography variant='h4' sx={{ color: '#E51C4A', fontWeight: 600}}>
-                    Work Experience
+                <Typography variant='h5' sx={{ color: '#4ADE80', fontWeight: 800 }} >
+                    Professional Experience.
                 </Typography>
                 <Timeline data={WORK_INFORMATION}/>
-                <StyledDownloadButton variant="contained" >
-                    <FileDownloadOutlinedIcon sx={{ marginRight: '10px'}}/>
-                    Download Resume
-                </StyledDownloadButton>
+                <AppButton
+                    variant='solid'
+                    sx={{ height: 50, color: '#003919' }}
+                >
+                    Download Resume&nbsp;&nbsp;
+                    <FileDownloadOutlinedIcon />
+                </AppButton>
             </StyledWorkContentWrapper>
             <StyledWorkContentWrapper>
-                <Typography variant='h4' sx={{ color: '#E51C4A', fontWeight: 600}}>
-                    Education
+                <Typography variant='h5' sx={{ color: '#4ADE80', fontWeight: 800 }} >
+                    Education.
                 </Typography>
                 <Timeline data={EDUCATION_INFORMATION}/>
             </StyledWorkContentWrapper>

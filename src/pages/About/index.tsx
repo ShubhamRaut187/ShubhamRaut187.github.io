@@ -1,16 +1,22 @@
-import React,{useEffect, useRef} from 'react'
-import styled from 'styled-components';
-import { Typography, Button } from '@mui/material'; 
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import ImageContainer from '../../components/ImageContainer';
-import { useTypewriter } from 'react-simple-typewriter';
-import gsap from "gsap";
+// #region Imports
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { useGSAP } from "@gsap/react";
+import React,{ useRef } from 'react';
+import styled from 'styled-components';
+import { Typography } from '@mui/material';
 
+// MUI Icons
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+
+import AppButton from "../../components/Button";
+// endregion
+
+// #region Styled Components
 const StyledPageWrapper = styled.div`
+    margin: 40px auto 140px auto;
     width: 85%;
-    margin: 80px auto 150px auto;
     @media screen and (min-width:768px) and (max-width:1024px){
        width: 90%;
     }
@@ -20,122 +26,154 @@ const StyledPageWrapper = styled.div`
     }
 `;
 
-const StyledInformationWrapper = styled.div`
-    width: 100%;
-    display: flex;
+const StyledAboutWrapper = styled.div`
     align-items: center;
-    justify-content: space-around;
-    height: 400px;
-    border-radius: 20px;
-    background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
-    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+
+    & > .page-about-info {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        justify-content: center;
+        width: 46%;
+
+        & > .page-about-info-container {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 36px;
+        }
+
+        & > .page-about-info-action {
+            align-items: center;
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+    }
+
+    & > .page-about-decription {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        justify-content: center;
+        width: 40%;
+    }
+
     @media screen and (min-width:768px) and (max-width:1024px){
-       height: 400px;
     }
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
         flex-direction: column;
-        height: 1000px;
-    }
-`;
-
-const StyledImagesContainer = styled.div`
-    width: 40%;
-    height: 300px;
-    border-radius: 20px;
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        width: 90%;
-        height: 30%;
-    }
-`;
-
-const StyledInfoContainer = styled.div`
-    width: 50%;
-    height: 300px;
-    border-radius: 20px;
-    @media screen and (min-width:768px) and (max-width:1024px){
-       overflow-y: auto;
-       scrollbar-width: none;
+        & > .page-about-info {
+            width: 100%;
+        }
+        & > .page-about-decription {
+            width: 100%;
+        }
     }
 
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        flex-direction: column;
-        width: 90%;
-        height: 50% !important;
-    }
 `;
+// endregion
 
-const StyledButton = styled(Button)`
-    text-transform: none !important;
-    border-color: #E51C4A !important;
-    background-color: #E51C4A !important;
-    color: #FFFFFF;
-    font-family: "Kumbh Sans", serif !important;
-    margin-top: 10px !important;
-    box-shadow: none !important;
-`;
-
+// #region Component
 const About: React.FC = () => {
     const ref = useRef<HTMLDivElement | null>(null);
-    const [typeEffect] = useTypewriter({
-        words:['Engineer...', 'Explorer...', 'Traveller...', 'Foodie...'],
-        loop: true,
-        typeSpeed: 100,
-        deleteSpeed: 100,
 
-    });
-
-    useEffect(() => {
-        if (ref.current) {
-          gsap.fromTo(
+    useGSAP(() => {
+        gsap.fromTo(
             ref.current,
-            { opacity: 0, x: -100 },
             {
-              opacity: 1,
-              x: 0,
-              duration: 1,
-              scrollTrigger: {
-                trigger: ref.current,
-                start: "top 80%",
-                end: "top 20%",
-                scrub: true,
-                toggleActions: "play reverse play reverse",
-              },
+                opacity: 0,
+                x: -100,
+            },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    // trigger: ref.current,
+                    // start: "top 85%",
+                    // toggleActions: "play none none reverse",
+                    // invalidateOnRefresh: true,
+                    trigger: ref.current,
+                    start: "top 60%",
+                    end: "top 40%",
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                },
             }
-          );
-        }
-      }, []);
+        );
+        ScrollTrigger.refresh();
+    },
+    {
+        scope: ref 
+    });
 
   return (
     <StyledPageWrapper ref={ref}>
-        <Typography variant='h3' component='div' sx={{ color: '#808080', fontWeight: 600}}>
-            More about me 
-        </Typography>
-        <StyledInformationWrapper>
-            <StyledImagesContainer>
-                <ImageContainer
-                  source={'https://sagarmude.netlify.app/static/media/avatar.711110cc.svg'}
-                  width='100%'
-                  height='100%'
-                  imageName='avatar'
-                  borderradius={'20px'}
-                />
-            </StyledImagesContainer>
-            <StyledInfoContainer>
-                <Typography variant='h4' component='div' sx={{ color: '#E51C4A', fontWeight: 600, marginBottom: '10px'}}>
-                   <span style={{ color: '#808080'}}>Developer, Thinker, </span>{typeEffect}
+        <StyledAboutWrapper>
+            <div className="page-about-info">
+                <div page-about-info-title>
+                     <Typography
+                        variant="h2"
+                        sx={{ color: '#FFFFFF', fontWeight: 700 }}
+                    >
+                        About Me
+                    </Typography>
+                </div>
+                <div className="page-about-info-container">
+                    <Typography variant="body1" sx={{ color: '#808080', fontWeight: 500 }}>
+                        I am a dedicated full-stack developer based in Pune, India. 
+                        My professional journey is defined by a passion for architecting robust systems and solving complex technical challenges that 
+                        drive real-world impact. 
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: '#808080', fontWeight: 500 }}>
+                        I thrive on exploring innovative solutions and staying at the forefront of the ever-evolving tech landscape. 
+                        Whether it's optimizing back-end performance or crafting seamless user experiences, I bring a meticulous approach to every line of code.
+                    </Typography>
+                </div>
+                <div className="page-about-info-action">
+                    <AppButton
+                      variant={'solid'}
+                      sx={{ height: 50, color: '#003919' }}
+                    >
+                        Get in touch &nbsp;&nbsp;
+                        <EmailOutlinedIcon />
+                    </AppButton>
+                    <AppButton
+                      variant={'outline'}
+                      sx={{ height: 50 }}
+                    >
+                        Download Resume &nbsp;&nbsp;
+                        <FileDownloadOutlinedIcon />
+                    </AppButton>
+                </div>
+            </div>
+            <div className="page-about-decription">
+                <Typography variant="h2" sx={{ color: '#FFFFFF', fontWeight: 700, }}>
+                    Helping brands to stand out.
                 </Typography>
-                <Typography variant='body1' component='div' sx={{ color: '#FFFFFF' }}>
-                    Hi, I’m <span style={{ color: '#E51C4A', fontWeight: 700}}>Shubham Raut,</span> a 23-year-old full-stack developer based in Pune, India. With a passion for technology and problem-solving, I thrive on exploring innovative solutions and staying updated with the latest trends in the tech world. Beyond coding, I enjoy engaging in meaningful discussions about current events in technology and the world at large. I’m an avid traveler, always eager to explore the diverse beauty and culture of my country, India. My journey is fueled by a desire to grow both personally and professionally while making a meaningful impact through my work.
+                <Typography variant="body1" sx={{ color: '#808080', fontWeight: 500 }}>
+                    The combination of my passion for design, code & interaction positions me in a unique place in the web design world. 
+                    I enjoy crafting intuitive, high-performance digital experiences that are not only visually engaging but also scalable, accessible, and built with purpose.
                 </Typography>
-                <StyledButton variant='contained'>
-                    <EmailOutlinedIcon sx={{ marginRight: '20px'}}/>
-                    Get in touch
-                </StyledButton>
-            </StyledInfoContainer>
-        </StyledInformationWrapper>
+                <Typography variant="body1" sx={{ color: '#808080', fontWeight: 500 }}>
+                    I believe exceptional products are built where thoughtful design meets clean engineering.
+                    {/* I strive to create interfaces that are fast, intuitive, and visually refined—where every animation, component, and interaction serves a purpose.  */}
+                    By blending creative thinking with technical expertise, I aim to build experiences that leave a lasting impression.
+                </Typography>
+            </div>
+        </StyledAboutWrapper>
     </StyledPageWrapper>
   )
 }
-
+// endregion
 export default About;

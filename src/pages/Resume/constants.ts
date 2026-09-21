@@ -10,10 +10,10 @@ interface Education {
 
 export const EDUCATION_INFORMATION: Education[] = [
     {
-        logo: 'https://cdn.masaischool.com/masai-website/Masai_Logo_dark_web_b21aab8c62.webp',
+        logo: 'https://media.licdn.com/dms/image/v2/D560BAQGnrGDvNbuurg/company-logo_200_200/company-logo_200_200/0/1737373064896/masaischool_logo?e=1759968000&v=beta&t=sn8o8LVHee81Gp25WzoqiA_bsKilq3k1eZ1fOiMZmL0',
         company: 'Masai School',
         role: 'Full Stack Web Development',
-        durationRange: 'November 2022 - July 2024',
+        durationRange: 'November 2022 - July 2023',
         location: 'Bengaluru | Remote',
         websiteUrl: 'https://www.masaischool.com/',
         description: 'I completed a fast-paced full-stack web development program at Masai School, mastering the MERN stack in just a few months. This challenging journey equipped me with hands-on experience in building real-world projects, strengthening my technical skills, and preparing me to thrive in collaborative, fast-paced environments.'
@@ -50,7 +50,7 @@ interface Work extends Education {
 
 export const WORK_INFORMATION: Work[] = [
     {
-        logo:'https://cdn-apoii.nitrocdn.com/jcTiZikPoiBoWnScSnsgfoQvPGAxKOtM/assets/images/optimized/rev-a701094/www.knorex.com/wp-content/uploads/2019/10/Knorex-logo.svg',
+        logo:'https://media.licdn.com/dms/image/v2/D560BAQGHVSDeWZ5Fqw/company-logo_200_200/company-logo_200_200/0/1719256048875/knorex_logo?e=1759968000&v=beta&t=mB1tqL38D7TNwYiQOjG1W_3pRDuM14Fw3Rxpb7tDqzk',
         company: 'Knorex',
         role: 'Software Engineer',
         durationRange: 'April 2024 - Present',
@@ -59,7 +59,7 @@ export const WORK_INFORMATION: Work[] = [
         description: 'I work as a Software Engineer at Knorex India, a leading AdTech company, where I am responsible for building new features, maintaining web apps, and ensuring seamless product performance through collaboration with cross-functional teams like QA and UI/UX. I work closely with teams across Vietnam, Singapore, India, and my reporting office in Singapore, driving global collaboration to deliver high-quality, bug-free products with exceptional user experiences.',
     },
     {
-        logo: 'https://cdn.masaischool.com/masai-website/Masai_Logo_dark_web_b21aab8c62.webp',
+        logo: 'https://media.licdn.com/dms/image/v2/D560BAQGnrGDvNbuurg/company-logo_200_200/company-logo_200_200/0/1737373064896/masaischool_logo?e=1759968000&v=beta&t=sn8o8LVHee81Gp25WzoqiA_bsKilq3k1eZ1fOiMZmL0',
         company: 'Masai School',
         role: 'Assesment Assistant',
         durationRange: 'November 2023 - April 2024',

@@ -27,7 +27,7 @@ const StyledImageContainer = styled.div<StyledProps>`
 const ImageContainer: React.FC<Props> = ({ source, imageName, width, height, borderradius, bgColor }) => {
   return (
     <StyledImageContainer width={width} height={height} borderradius={borderradius} bgColor={bgColor}>
-        <img src={source} alt={imageName}/>
+        <img src={source} alt={imageName} style={{ borderRadius: borderradius }}/>
     </StyledImageContainer>
   )
 }

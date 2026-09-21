@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import PageWrapper from '../../components/PageWrapper';
 import { Typography, Button } from '@mui/material';
@@ -169,7 +169,52 @@ const StyledButton = styled(Button)`
     }
 `;
 
-const Contact = () => {
+const StyledModalContentWrapper = styled.div`
+    /* border: 1px solid red !important; */
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    width: 400px !important;
+    background: #526576 !important;
+    border: none;
+    box-shadow: none;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    transition: ease !important;
+    padding: 20px;
+    text-align: center;
+`;
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '500px',
+  height: '300px',
+  bgcolor: '#04121e',
+  border: 'none',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+
+const Contact: React.FC = () => {
+  // State to store form data
+  const [name, setName] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
+  const [purpose, setPurpose] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
+  const [formErrors, setFormErrors] = useState<object>({});
+
+  const handleSubmit: (event: React.FormEvent<HTMLFormElement>)  => void = (event) => {
+    event.preventDefault();
+    
+  }
+
   return (
     <PageWrapper>
         <Typography variant='h3' component='div' sx={{ color: '#808080', fontWeight: 600}}>
@@ -206,18 +251,28 @@ const Contact = () => {
                       id="filled-required"
                       label="Name"
                       variant="filled"
+                      onChange={ (e)=>{
+                        setName(e.target.value);
+                      } }
                     />
                     <StyledTextFeild
                       required
                       id="filled-required"
                       label="Email Address"
                       variant="filled"
+                      onChange={ (e)=>{
+                        setEmail(e.target.value);
+
+                      } }
                     />
                     <StyledTextFeild
                       required
                       id="filled-required"
                       label="Purpose"
                       variant="filled"
+                      onChange={ (e)=>{
+                        setPurpose(e.target.value);
+                      } }
                     />
                     <StyledButton variant='contained'>
                         <EmailOutlinedIcon sx={{ marginRight: '20px'}}/>
@@ -232,6 +287,9 @@ const Contact = () => {
                       variant="filled"
                       multiline
                       rows={10}
+                      onChange={ (e)=>{
+                        setMessage(e.target.value);
+                      } }
                     />
                 </div>
             </StyledConnectFromWrapper>

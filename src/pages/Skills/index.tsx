@@ -1,143 +1,180 @@
+// #region Imports
 import React from 'react'
 import styled from 'styled-components';
-import PageWrapper from '../../components/PageWrapper';
 import { Typography } from '@mui/material';
- 
+
+import PageWrapper from '../../components/PageWrapper';
+// endregion 
+
+// #region Styled Components
 const StyledSkillcardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 10px; 
-  margin: 20px auto;
-  & > img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px; 
-    max-height: 120px; 
-  }
+	display: grid;
+	gap: 10px; 
+	grid-template-columns: repeat(5, 1fr); 
+	margin: 20px auto;
 
-  & > img:nth-child(1) {
-    grid-column: span 1; 
-    grid-row: span 1; 
-  }
-  & > img:nth-child(2) {
-    grid-column: span 1; 
-    grid-row: span 1;
-  }
-  & > img:nth-child(3) {
-    grid-column: span 3;
-    grid-row: span 1;
-  }
-  & > img:nth-child(4) {
-    grid-column: span 3;
-    grid-row: span 1;
-  }
-  & > img:nth-child(5) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  & > img:nth-child(6) {
-    grid-column: span 3;
-    grid-row: span 2;
-  }
-  & > img:nth-child(7) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  & > img:nth-child(8) {
-    grid-column: span 3;
-    grid-row: span 1;
-  }
-  & > img:nth-child(9) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(10) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(11) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(12) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  & > img:nth-child(13) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  & > img:nth-child(14) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  & > img:nth-child(15) {
-    grid-column: span 3;
-    grid-row: span 2;
-  }
-  & > img:nth-child(16) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(17) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  & > img:nth-child(18) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-  & > img:nth-child(19) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(20) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(21) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(22) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(23) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(24) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  & > img:nth-child(25) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-   /* Responsive Styles */
-   @media screen and (min-width: 768px) and (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px; 
-  }
+	& > img {
+		border-radius: 8px; 
+		height: auto;
+		max-height: 120px;
+		object-fit: cover; 
+		width: 100%;
+	}
 
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
-    
-    & > img {
-      max-height: 80px;
-    }
-  }
+	& > img:nth-child(1) {
+		grid-column: span 1; 
+		grid-row: span 1; 
+	}
+
+	& > img:nth-child(2) {
+		grid-column: span 1; 
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(3) {
+		grid-column: span 3;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(4) {
+		grid-column: span 3;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(5) {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(6) {
+		grid-column: span 3;
+		grid-row: span 2;
+	}
+
+	& > img:nth-child(7) {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(8) {
+		grid-column: span 3;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(9) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(10) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+	
+	& > img:nth-child(11) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(12) {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(13) {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(14) {
+		grid-column: span 2;
+		grid-row: span 2;
+	}
+
+	& > img:nth-child(15) {
+		grid-column: span 3;
+		grid-row: span 2;
+	}
+
+	& > img:nth-child(16) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(17) {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(18) {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(19) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(20) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(21) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(22) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(23) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(24) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	& > img:nth-child(25) {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	/* Responsive Styles */
+	@media screen and (min-width: 768px) and (max-width: 1024px) {
+		gap: 8px; 
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media screen and (min-width: 320px) and (max-width: 767px) {
+		gap: 5px;
+		grid-template-columns: repeat(2, 1fr);
+		
+		& > img {
+			max-height: 80px;
+		}
+	}
 `;
+// #endregion
 
+// #region Component
 const Skills: React.FC = () => {
   return (
     <PageWrapper>
-        <Typography variant='h3' component='div' sx={{ color: '#808080', fontWeight: 600}}>
-            Skills
+        <Typography variant='h2' component='div' sx={{ fontWeight: 700 }}>
+            Technical Proficiency.
         </Typography>
+        <div style={{ maxWidth: '70%', marginTop: '16px' }}>
+            <Typography variant='body1' sx={{ color: '#808080', fontWeight: 500 }}>
+            	Explore my comprehensive technical stack, built through hands-on experience across the entire software engineering lifecycle. From crafting intuitive user interfaces and robust backend services to managing cloud infrastructure, automation, databases, and AI-powered solutions, these are the technologies I use to build modern, scalable applications.
+            </Typography>
+        </div>
         <StyledSkillcardContainer>
             <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge" height="40" alt="html5 logo"  />
             <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge" height="40" alt="css3 logo"  />
@@ -170,3 +207,4 @@ const Skills: React.FC = () => {
 }
 
 export default Skills;
+// #endregion

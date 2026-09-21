@@ -1,61 +1,74 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Typography } from '@mui/material';
 
-// Styled component for the card
-const StyledCarouselCard = styled.div`
+interface Card {
+  picture: string,
+}
+
+const StyledCarouselCard = styled.div<Card>`
   width: 800px;
-  height: 400px;
-  position: relative; /* Necessary for absolutely positioning child elements */
+  height: 600px;
+  position: relative;
   border-radius: 10px;
-  overflow: hidden; /* Ensures content doesn't overflow the card's rounded corners */
-  /* border: 1px solid green; */
+  overflow: hidden;
+  /* background: linear-gradient(to right, #d9d9d91f, #7373731f) !important; */
 
   .background {
     width: 100%;
     height: 100%;
-    background: url('https://i.redd.it/g4crddfnmt9a1.jpg') center/cover no-repeat;
-    transition: filter 0.3s ease-in-out; /* Smooth transition for blur effect */
+    background: url(${(props) => props.picture});
+    transition: filter 0.3s ease-in-out;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
-  // The text overlay layer
   .overlay {
     position: absolute;
-    inset: 0; /* Fills the card */
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, #d9d9d91f, #7373731f) !important; /* Gradient background on hover */
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px); /* Subtle offset for entry animation */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for visibility and position */
+    background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     color: white;
     font-size: 1.5rem;
     text-align: center;
     padding: 20px;
-    z-index: 1; /* Ensures the overlay is above the background */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
   }
 
-  // Hover effects for both background and overlay
   &:hover .background {
-    filter: blur(4px) brightness(0.7); /* Blur and dim the background */
+    filter: blur(4px) brightness(0.7);
   }
 
   &:hover .overlay {
-    opacity: 1; /* Make the overlay visible */
-    transform: translateY(0); /* Reset the position for smooth entry */
+    opacity: 1;
+    transform: translateY(0);
   }
 `;
 
-// Functional component for the Carousel Card
-const CarouselCard = () => {
+interface Props {
+  picture: string,
+  description: string,
+  title: string,
+}
+const CarouselCard: React.FC<Props> = ({ picture, description, title }) => {
   return (
-    <StyledCarouselCard>
-      {/* Background image layer */}
+    <StyledCarouselCard picture={picture}>
       <div className="background"></div>
-
-      {/* Overlay text layer */}
       <div className="overlay">
-        This is the overlay text that appears on hover!
+      <Typography variant='h4' component='div' sx={{ color: '#FFFFFF', marginBottom: '10px', fontWeight: 600}}>
+          {title}
+        </Typography>
+        <Typography variant='body1' component='div'>
+          {description}
+        </Typography>
       </div>
     </StyledCarouselCard>
   );

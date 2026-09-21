@@ -12,8 +12,7 @@ const StyledMenu = styled(Menu)`
     width: 100%;
     top: 80px !important;
     left: 16px !important;
-    /* background: linear-gradient(to right, #d9d9d91f, #7373731f) !important; */
-    background-color: rgba(21, 47, 68, 0.8) !important;
+    background-color: transparent !important;
     backdrop-filter: blur(10px) !important;
     box-shadow: none !important;
     border-radius: 8px !important;
@@ -22,7 +21,7 @@ const StyledMenu = styled(Menu)`
 
         & > p {
             color: #FFFFFF !important;
-            font-family: "Kumbh Sans", serif !important;
+            font-family: "Inter", serif !important;
             font-size: 16px !important;
         }
 
@@ -55,7 +54,9 @@ const StyledAppBar = styled(AppBar)`
   z-index: 10 !important;
   top: 20px;
   width: 85% !important;
-  background-color: rgba(21, 47, 68, 0.8) !important;
+  /* background-color: rgba(21, 47, 68, 0.8) !important; */
+  /* background-color: #121417 !important; */
+  background-color: transparent !important;
   backdrop-filter: blur(10px) !important;
   margin: 20px auto;
   border-radius: 8px;
@@ -112,8 +113,9 @@ const StyledButton = styled(Button)`
 
 const StyledDownloadButton = styled(Button)`
     text-transform: none !important;
-    border-color: #E51C4A !important;
-    color: #E51C4A !important;
+    border-color: #32333C !important;
+    background-color: #32333C !important;
+    color: #4ADE80 !important;
     font-family: "Kumbh Sans", serif !important;
 `;
 
