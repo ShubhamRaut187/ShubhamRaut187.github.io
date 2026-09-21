@@ -169,39 +169,6 @@ const StyledButton = styled(Button)`
     }
 `;
 
-const StyledModalContentWrapper = styled.div`
-    /* border: 1px solid red !important; */
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%);
-    width: 400px !important;
-    background: #526576 !important;
-    border: none;
-    box-shadow: none;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex-direction: column !important;
-    transition: ease !important;
-    padding: 20px;
-    text-align: center;
-`;
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '500px',
-  height: '300px',
-  bgcolor: '#04121e',
-  border: 'none',
-  boxShadow: 24,
-  pt: 2,
-  px: 4,
-  pb: 3,
-};
-
 const Contact: React.FC = () => {
   // State to store form data
   const [name, setName] = useState<string | null>(null);
@@ -210,9 +177,10 @@ const Contact: React.FC = () => {
   const [message, setMessage] = useState<string | null>(null);
   const [formErrors, setFormErrors] = useState<object>({});
 
-  const handleSubmit: (event: React.FormEvent<HTMLFormElement>)  => void = (event) => {
+  const handleSubmit: (event: React.MouseEvent<HTMLButtonElement>)  => void = (event) => {
     event.preventDefault();
-    
+    console.log(name, email, purpose, message, formErrors)
+    setFormErrors({});
   }
 
   return (
@@ -274,7 +242,7 @@ const Contact: React.FC = () => {
                         setPurpose(e.target.value);
                       } }
                     />
-                    <StyledButton variant='contained'>
+                    <StyledButton variant='contained' onClick={handleSubmit}>
                         <EmailOutlinedIcon sx={{ marginRight: '20px'}}/>
                         Send Mail
                     </StyledButton>
