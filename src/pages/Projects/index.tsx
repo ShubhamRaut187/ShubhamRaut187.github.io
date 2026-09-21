@@ -16,7 +16,7 @@ const StyledCompoanyProjectsContainer = styled.div`
 `;
 
 const StyledCompanyProjectCard = styled.div`
-    background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
+    background-color: #1E1F27;
     border-radius: 8px;
     padding: 24px;
     display: flex;
@@ -45,11 +45,11 @@ const Projects: React.FC = () => {
         <StyledCompoanyProjectsContainer>
             <StyledCompanyProjectCard>
                 <div>
-                    <Typography variant='h5' sx={{ color: '#FFFFFF', fontWeight: 600 }}>AdZiggy</Typography>
-                    <Typography variant="body1" sx={{ color: '#FFFFFF', fontWeight: 600 }}>Associated with Knorex.</Typography>
+                    <Typography variant='h6' sx={{ color: '#FFFFFF', fontWeight: 900 }}>AdZiggy</Typography>
+                    <Typography variant="body2" sx={{ color: '#4ADE80', fontWeight: 900, }}>Associated with Knorex.</Typography>
                 </div>
                 <div className='projects-company-project-card-description'>
-                    <Typography variant="body1" sx={{ color: '#E7E7E7', textAlign: 'justify' }}>
+                    <Typography variant="body2" sx={{ color: '#FFFFFF', textAlign: 'justify' }}>
                         AdZiggy is a lightweight, universal AdTech platform with domain-specific white-label capabilities, 
                         enabling businesses to create, manage, and optimize digital advertising campaigns across multiple marketing channels. 
                         The platform integrates major advertising ecosystems, 

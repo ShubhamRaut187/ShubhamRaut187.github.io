@@ -13,7 +13,7 @@ export const EDUCATION_INFORMATION: Education[] = [
         logo: 'https://media.licdn.com/dms/image/v2/D560BAQGnrGDvNbuurg/company-logo_200_200/company-logo_200_200/0/1737373064896/masaischool_logo?e=1759968000&v=beta&t=sn8o8LVHee81Gp25WzoqiA_bsKilq3k1eZ1fOiMZmL0',
         company: 'Masai School',
         role: 'Full Stack Web Development',
-        durationRange: 'November 2022 - July 2024',
+        durationRange: 'November 2022 - July 2023',
         location: 'Bengaluru | Remote',
         websiteUrl: 'https://www.masaischool.com/',
         description: 'I completed a fast-paced full-stack web development program at Masai School, mastering the MERN stack in just a few months. This challenging journey equipped me with hands-on experience in building real-world projects, strengthening my technical skills, and preparing me to thrive in collaborative, fast-paced environments.'

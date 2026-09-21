@@ -168,7 +168,7 @@ const Skills: React.FC = () => {
   return (
     <PageWrapper>
         <Typography variant='h2' component='div' sx={{ fontWeight: 700 }}>
-            Technial Proficiency
+            Technical Proficiency.
         </Typography>
         <div style={{ maxWidth: '70%', marginTop: '16px' }}>
             <Typography variant='body1' sx={{ color: '#808080', fontWeight: 500 }}>

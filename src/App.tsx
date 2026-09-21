@@ -46,9 +46,9 @@ const App: React.FC = () => {
       <Home/>
       <About/>
       <Skills />
-      <Projects />
       <Resume />
-      <Gallery/>
+      <Projects />
+      {/* <Gallery/> */}
       <Contact/>
       <Footer/>
     </div>

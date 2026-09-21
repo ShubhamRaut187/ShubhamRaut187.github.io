@@ -24,16 +24,20 @@ interface Props {
 }
 
 const StyledTimeLine = styled(Timeline)`
-        width: '100%';
-        padding: 0;
-        margin: 0;
-        display: 'flex';
-        flex-direction: 'column';
-        align-items: 'flex-start';
+    width: '100%';
+    padding: 0;
+    margin: 0;
+    display: 'flex';
+    flex-direction: 'column';
+    align-items: 'flex-start';
+    gap: 10px !important;
 `;
 
 const StyledTimelineContent = styled(TimelineContent)`
-    padding: 30px 0px 30px 10px !important;
+    margin-left: 10px !important;
+    background-color: #1E1F27;
+    padding: 10px 10px 10px 10px !important;
+    border-radius: 6px;
     @media screen and (min-width:768px) and (max-width:1024px){
         max-width: 100% !important;
     }
@@ -45,7 +49,6 @@ const StyledTimelineContent = styled(TimelineContent)`
 
 const StyledTimelineContentHeader = styled.div`
     max-width: 100% !important;
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -66,11 +69,10 @@ const StyledTimelineContentHeader = styled.div`
 `
 
 const StyledSubHeadingWrapper = styled.div`
-    max-width: 85% !important;
+    max-width: 100% !important;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding-left: 70px;
     flex-direction: column;
     @media screen and (min-width:768px) and (max-width:1024px){
         
@@ -82,15 +84,15 @@ const StyledSubHeadingWrapper = styled.div`
 `;
 
 const StyledTimelineDot = styled(TimelineDot)`
-    width: 10px !important;
-    height: 10px !important;
-    background-color: #FFFFFF !important;
+    width: 2px !important;
+    height: 2px !important;
+    background-color: #4ADE80 !important;
 `;
 
 const StyledTimelineConector = styled(TimelineConnector)`
-    width: 3px !important;
+    width: 0.1px !important;
     border-radius: 10px !important;
-    background: #FFFFFF !important;
+    background: #808080 !important;
 `;
 
 const TimeLine: React.FC<Props> = ({ data }) => {
@@ -107,19 +109,19 @@ const TimeLine: React.FC<Props> = ({ data }) => {
                     </TimelineSeparator>
                     <StyledTimelineContent>
                         <StyledTimelineContentHeader>
-                            <ImageContainer width='60px' height='60px' borderradius='10px' source={item.logo} imageName={item.company} bgColor='#FFFFFF'/>
-                            <Typography variant='h4' component='div' sx={{ color: '#FFFFFF', fontWeight: 600, whiteSpace: 'nowrap'}} className='timeline-section-heading'>
+                            {/* <ImageContainer width='30px' height='30px' borderradius='10px' source={item.logo} imageName={item.company} bgColor='#FFFFFF'/> */}
+                            <Typography variant='h6' component='div' sx={{ color: '#FFFFFF', fontWeight: 900, whiteSpace: 'nowrap'}} className='timeline-section-heading'>
                                 {item.role}
                             </Typography>
                         </StyledTimelineContentHeader>
                         <StyledSubHeadingWrapper>
-                            <Typography variant='body1' component='div' sx={{ color: '#FFFFFF', fontWeight: 500}}>
+                            <Typography variant='caption' component='div' sx={{ color: '#4ADE80', fontWeight: 900}}>
                                 {item.company} | {item.location}
                             </Typography>
-                            <Typography variant='body1' component="div" sx={{ color: '#808080', fontWeight: 500}}>
+                            <Typography variant='caption' component="div" sx={{ color: '#808080', fontWeight: 900}}>
                                 {item.durationRange}
                             </Typography>
-                            <Typography variant='body1' component='div' sx={{ color: '#808080', marginTop:'10px'}}>
+                            <Typography variant='body2' component='div' sx={{ color: '#FFFFFF', marginTop:'10px', }}>
                                 {item.description}
                             </Typography>
                         </StyledSubHeadingWrapper>

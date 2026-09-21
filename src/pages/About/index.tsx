@@ -15,7 +15,7 @@ import AppButton from "../../components/Button";
 
 // #region Styled Components
 const StyledPageWrapper = styled.div`
-    margin: 20px auto 150px auto;
+    margin: 40px auto 140px auto;
     width: 85%;
     @media screen and (min-width:768px) and (max-width:1024px){
        width: 90%;
