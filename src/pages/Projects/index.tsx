@@ -1,13 +1,25 @@
 import React from 'react'
 import PageWrapper from '../../components/PageWrapper';
 import styled from 'styled-components';
-import { Typography } from '@mui/material';
+import { Chip, Typography } from '@mui/material';
+import DescriptionIcon from '@mui/icons-material/Description';
+import FlagIcon from '@mui/icons-material/Flag';
+import LayersIcon from '@mui/icons-material/Layers';
+import PersonIcon from '@mui/icons-material/Person';
+
+import { PROJECTS } from './constants'
 
 const StyledCompoanyProjectsContainer = styled.div`
     margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    @media screen and (min-width:768px) and (max-width:1024px){
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `;
 
 const StyledCompanyProjectCard = styled.div`
@@ -16,15 +28,27 @@ const StyledCompanyProjectCard = styled.div`
     padding: 24px;
     display: flex;
     align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
-    & > .projects-company-project-card-description {
+
+    & > .project-card-primary-details {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
-        gap: 12px;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+    }
+`;
+
+const StyledUl = styled.ul`
+    list-style-type: disc;
+    margin: 0px;
+    padding: 12px;
+    width: '100%';
+
+    & > li::marker {
+        color: #4ade80;
     }
 `;
 
@@ -35,26 +59,103 @@ const Projects: React.FC = () => {
             Projects
         </Typography>
         <StyledCompoanyProjectsContainer>
-            <StyledCompanyProjectCard>
-                <div>
-                    <Typography variant='h6' sx={{ color: '#FFFFFF', fontWeight: 900 }}>AdZiggy</Typography>
-                    <Typography variant="body2" sx={{ color: '#4ADE80', fontWeight: 900, }}>Associated with Knorex.</Typography>
-                </div>
-                <div className='projects-company-project-card-description'>
-                    <Typography variant="body2" sx={{ color: '#FFFFFF', textAlign: 'justify' }}>
-                        AdZiggy is a lightweight, universal AdTech platform with domain-specific white-label capabilities, 
-                        enabling businesses to create, manage, and optimize digital advertising campaigns across multiple marketing channels. 
-                        The platform integrates major advertising ecosystems, 
-                        including Meta (Social), Google (Search), LinkedIn, and Programmatic Display, providing a unified interface for campaign management, 
-                        reporting, creative management, audience targeting, and performance tracking. The frontend is built using React 15.1, React Router v3.2.1, 
-                        Redux, and Redux Saga.
-                    </Typography>
-                    <Typography variant="body1" sx={{ color: '#FFFFFF', textAlign: 'justify', fontWeight: 600 }}>
-                        React 15.1 | &nbsp;Java Spring
-                    </Typography>
-                </div>
-            </StyledCompanyProjectCard>
-            
+            {
+                PROJECTS && Array.isArray(PROJECTS) &&
+                PROJECTS.map((project, index) => {
+                    return (
+                        <StyledCompanyProjectCard key={index}>
+                            <div className='project-card-primary-details'>
+                                <div className='project-card-title'>
+                                    <Typography variant='h6' sx={{ color: '#FFFFFF', fontWeight: 900 }}>{project.name}</Typography>
+                                    <Typography variant="body2" sx={{ color: '#4ADE80', fontWeight: 900 }}>
+                                        {project.association}
+                                    </Typography>
+                                    <Typography variant="caption" sx={{ color: '#FFFFFF', textAlign: 'justify', mt: '18px', display: 'block' }}>
+                                        {project.summary}
+                                    </Typography>
+                                </div>
+                                <hr style={{ width: '100%', border: '0.6px solid #808080' }}/>
+                                <div className='project-card-description'>
+                                    <Typography variant='body2' sx={{ fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '4px' }}>
+                                        <DescriptionIcon />
+                                        Description.
+                                    </Typography>
+                                    <Typography variant='caption'>
+                                        {project.description}
+                                    </Typography>
+                                </div>
+                                <hr style={{ width: '100%', border: '0.6px solid #808080' }}/>
+                                <div style={{ width: '100%' }}>
+                                    <Typography variant='body2' sx={{ fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '4px' }}>
+                                        <FlagIcon />
+                                        Key Features.
+                                    </Typography>
+                                    <StyledUl>
+                                        {
+                                            project.features.map((feature) => {{
+                                                return (
+                                                    <li>
+                                                        <Typography variant='caption'>
+                                                            {feature}
+                                                        </Typography>
+                                                    </li>
+                                                );
+                                            }})
+                                        }
+                                    </StyledUl>
+                                </div>
+                                <hr style={{ width: '100%', border: '0.6px solid #808080' }}/>
+                                <div style={{ width: '100%' }}>
+                                    <Typography variant='body2' sx={{ fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '4px' }}>
+                                        <LayersIcon />
+                                        Tech Stack.
+                                    </Typography>
+                                    <Typography variant='caption' sx={{ color: '#808080', fontWeight: 900 }}>Front End</Typography>
+                                    <div>
+                                        {
+                                            project.techStack.frontEnd.map((stack) => {
+                                                return (
+                                                    <Chip variant='outlined' label={stack}/>
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                    <Typography variant='caption' sx={{ color: '#808080', fontWeight: 900 }}>Back End</Typography>
+                                    <div>
+                                        {
+                                            project.techStack.backEnd.map((stack) => {
+                                                return (
+                                                    <Chip variant='outlined' label={stack}/>
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                <hr style={{ width: '100%', border: '0.6px solid #808080' }}/>
+                                <div style={{ width: '100%' }}>
+                                    <Typography variant='body2' sx={{ fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '4px' }}>
+                                        <PersonIcon />
+                                        My areas of responsibility.
+                                    </Typography>
+                                    <StyledUl>
+                                        {
+                                            project.role.map((item) => {
+                                                return (
+                                                    <li>
+                                                        <Typography variant='caption'>
+                                                           {item}
+                                                        </Typography>
+                                                    </li>
+                                                );
+                                            })
+                                        }
+                                    </StyledUl>
+                                </div>
+                            </div>
+                        </StyledCompanyProjectCard>
+                    );
+                })
+            }
         </StyledCompoanyProjectsContainer>
     </PageWrapper>
   )

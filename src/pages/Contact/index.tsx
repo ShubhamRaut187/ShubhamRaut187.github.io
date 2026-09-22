@@ -8,6 +8,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import CallIcon from '@mui/icons-material/Call';
 import TextField from '@mui/material/TextField';
+import AppButton from '../../components/Button';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
 const StyledContentWrapper = styled.div`
@@ -31,8 +32,8 @@ const StyledConnectSocialWrapper = styled.div`
     /* height: 300px; */
     width: 45%;
     /* border: 1px solid white; */
-    border-radius: 20px;
-    background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
+    border-radius: 8px;
+    background-color: #1E1F27;
     padding: 30px 30px;
     display: flex;
     align-items: flex-start;
@@ -43,7 +44,7 @@ const StyledConnectSocialWrapper = styled.div`
     }
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
-        width: 83%;
+        width: 100%;
     }
 `;
 
@@ -92,7 +93,7 @@ const StyledSocialIconsContainer = styled.div`
 
 const StyledTextFeild = styled(TextField)`
     width: 100% !important;
-    background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
+    background: #1E1F27 !important;
     border-radius: 8px !important;
     color: #FFFFFF !important;
 
@@ -114,14 +115,14 @@ const StyledTextFeild = styled(TextField)`
   }
 
   & .MuiFilledInput-underline:after {
-    border-bottom: 2px solid #E51C4A !important; 
+    border-bottom: 2px solid #4ADE80 !important; 
     border-radius: 10px !important;
   }
 `;
 
 const StyledTextFeildMessage = styled(TextField)`
     width: 100% !important;
-    background: linear-gradient(to right, #d9d9d91f, #7373731f) !important;
+    background: #1E1F27 !important;
     border-radius: 8px !important;
     color: #FFFFFF !important;
     height: 100% !important;
@@ -147,7 +148,7 @@ const StyledTextFeildMessage = styled(TextField)`
   }
 
   & .MuiFilledInput-underline:after {
-    border-bottom: 2px solid #E51C4A !important; 
+    border-bottom: 2px solid #4ADE80 !important; 
     border-radius: 10px !important;
   }
 
@@ -185,31 +186,31 @@ const Contact: React.FC = () => {
 
   return (
     <PageWrapper>
-        <Typography variant='h3' component='div' sx={{ color: '#808080', fontWeight: 600}}>
-            Get in touch
+       <Typography variant='h2' component='div' sx={{ fontWeight: 700 }}>
+            Contact me.
         </Typography>
         <StyledContentWrapper>
             <StyledConnectSocialWrapper>
-                <Typography variant='h5' component='div' sx={{ color: '#E51C4A', fontWeight: 600}}>
+                <Typography variant='body1' component='div' sx={{ color: '#4ADE80', fontWeight: 900}}>
                     Let's Connect...
                 </Typography>
-                <Typography variant='body1' component='div' sx={{ color: '#808080'}}>
+                <Typography variant='body2' component='div' sx={{ color: '#FFFFFF', marginTop: '14px'}}>
                     I’m passionate about exploring new opportunities, collaborating on innovative projects, and connecting with professionals 
                     who share a vision for growth. Whether you’re looking to team up on a project, discuss ideas, or explore new ventures, 
                     I’m excited to hear from you. Feel free to reach out, and let’s create something impactful together!
                 </Typography>
-                <Typography variant='body1' component='div' sx={{ color: '#808080', marginTop: '20px'}}>
+                <Typography variant='body2' component='div' sx={{ color: '#808080', marginTop: '20px', fontWeight: 900 }}>
                     Write me at: raut.shubham4554@gmail.com
                 </Typography>
-                <Typography variant='body1' component='div' sx={{ color: '#808080'}}>
+                <Typography variant='body2' component='div' sx={{ color: '#808080', fontWeight: 900}}>
                     Mobile: +91 &nbsp;7499265181
                 </Typography>
                 <StyledSocialIconsContainer>
-                    <LinkedInIcon sx={{ color: '#FFFFFF', width: '30px', height: '30px', cursor: 'pointer'}}/>
-                    <GitHubIcon sx={{ color: '#FFFFFF', width: '25px', height: '25px', cursor: 'pointer'}}/>
-                    <EmailIcon sx={{ color: '#FFFFFF', width: '30px', height: '30px', cursor: 'pointer'}}/>
-                    <InstagramIcon sx={{ color: '#FFFFFF', width: '30px', height: '30px', cursor: 'pointer'}}/>
-                    <CallIcon sx={{ color: '#FFFFFF', width: '30px', height: '30px', cursor: 'pointer'}}/>
+                    <LinkedInIcon sx={{ color: '#4ADE80', width: '20px', height: '20px', cursor: 'pointer'}}/>
+                    <GitHubIcon sx={{ color: '#4ADE80', width: '15px', height: '15px', cursor: 'pointer'}}/>
+                    <EmailIcon sx={{ color: '#4ADE80', width: '20px', height: '20px', cursor: 'pointer'}}/>
+                    <InstagramIcon sx={{ color: '#4ADE80', width: '20px', height: '20px', cursor: 'pointer'}}/>
+                    <CallIcon sx={{ color: '#4ADE80', width: '20px', height: '20px', cursor: 'pointer'}}/>
                 </StyledSocialIconsContainer>
             </StyledConnectSocialWrapper>
             <StyledConnectFromWrapper>
@@ -242,10 +243,13 @@ const Contact: React.FC = () => {
                         setPurpose(e.target.value);
                       } }
                     />
-                    <StyledButton variant='contained' onClick={handleSubmit}>
-                        <EmailOutlinedIcon sx={{ marginRight: '20px'}}/>
-                        Send Mail
-                    </StyledButton>
+                    <AppButton
+						variant='solid'
+						sx={{ height: 50, color: '#003919', width: '100%' }}
+					>
+						Send Mail&nbsp;&nbsp;
+						<EmailOutlinedIcon />
+					</AppButton>
                 </div>
                 <div>
                     <StyledTextFeildMessage
