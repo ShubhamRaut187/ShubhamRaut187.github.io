@@ -154,22 +154,6 @@ const StyledTextFeildMessage = styled(TextField)`
 
 `;
 
-
-const StyledButton = styled(Button)`
-    width: 100% !important;
-    height: 50px !important;
-    text-transform: none !important;
-    border-color: #E51C4A !important;
-    background-color: #E51C4A !important;
-    color: #FFFFFF;
-    font-family: "Kumbh Sans", serif !important;
-    box-shadow: none !important;
-    border-radius: 8px !important;
-    @media screen and (min-width: 320px) and (max-width: 767px) {
-        width: 100% !important;
-    }
-`;
-
 const Contact: React.FC = () => {
   // State to store form data
   const [name, setName] = useState<string | null>(null);
@@ -246,6 +230,7 @@ const Contact: React.FC = () => {
                     <AppButton
 						variant='solid'
 						sx={{ height: 50, color: '#003919', width: '100%' }}
+						onClick={handleSubmit}
 					>
 						Send Mail&nbsp;&nbsp;
 						<EmailOutlinedIcon />
