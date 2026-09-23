@@ -1,10 +1,8 @@
 import React from 'react'
 import PageWrapper from '../../components/PageWrapper';
-import AppButton from '../../components/Button';
 import { Typography } from '@mui/material';
 import styled from 'styled-components';
 import Timeline from '../../components/TimeLine';
-import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { EDUCATION_INFORMATION, WORK_INFORMATION} from './constants';
 
 const StyledResumeContentWrapper = styled.div`
@@ -41,6 +39,19 @@ const StyledWorkContentWrapper = styled.div`
     }
 `;
 
+const StyledHr = styled.hr`
+    display: none;
+    @media screen and (min-width:768px) and (max-width:1024px){
+
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        border: 0.4px solid #808080;
+        display: block;
+        margin: 36px auto;
+        width: 100%;
+    }
+`;
 
 const Resume: React.FC = () => {
   return (
@@ -54,14 +65,15 @@ const Resume: React.FC = () => {
                     Professional Experience.
                 </Typography>
                 <Timeline data={WORK_INFORMATION}/>
-                <AppButton
+                {/* <AppButton
                     variant='solid'
                     sx={{ height: 50, color: '#003919' }}
                 >
                     Download Resume&nbsp;&nbsp;
                     <FileDownloadOutlinedIcon />
-                </AppButton>
+                </AppButton> */}
             </StyledWorkContentWrapper>
+            <StyledHr />
             <StyledWorkContentWrapper>
                 <Typography variant='h5' sx={{ color: '#4ADE80', fontWeight: 800 }} >
                     Education.

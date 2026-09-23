@@ -142,15 +142,32 @@ const About: React.FC = () => {
                 </div>
                 <div className="page-about-info-action">
                     <AppButton
-                      variant={'solid'}
-                      sx={{ height: 50, color: '#003919' }}
+                        variant={'solid'}
+                        sx={{ height: 50, color: '#003919' }}
+                        onClick={() => {
+                            const section = document.getElementById('contact');
+                            if (section) {
+                                section.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start',
+                                })
+                            }
+                        }}
                     >
                         Get in touch &nbsp;&nbsp;
                         <EmailOutlinedIcon />
                     </AppButton>
                     <AppButton
-                      variant={'outline'}
-                      sx={{ height: 50 }}
+                        variant={'outline'}
+                        sx={{ height: 50 }}
+                        onClick={() => {
+                            const link = document.createElement('a');
+                            link.href = '/Shubham_Raut_Resume.pdf';
+                            link.download = 'Shubham_Raut_Resume.pdf';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        }}
                     >
                         Download Resume &nbsp;&nbsp;
                         <FileDownloadOutlinedIcon />

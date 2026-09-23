@@ -23,18 +23,15 @@ gsap.registerPlugin(ScrollTrigger);
 const StyledPageWrapper = styled.div`
     align-items: center;
     display: flex;
-    /* height: 600px; */
     justify-content: space-between;
     margin: 40px auto;
     width: 85%;
 
     @media screen and (min-width:768px) and (max-width:1024px){
-        /* height: 500px; */
         width: 90%;
     }
 
     @media screen and (min-width: 320px) and (max-width: 767px) {
-        /* height: 500px; */
         flex-direction: column;
         width: 90%;
     }
@@ -181,7 +178,7 @@ const Home: React.FC = () => {
                         variant='caption'
                         sx={{ color: '#4ADE80', letterSpacing: 3 }}
                     >
-                        Available for new oppotunities.
+                        Available for new opportunities
                     </Typography>
                 </StyledStatus>
             <Typography 
@@ -217,13 +214,41 @@ const Home: React.FC = () => {
                 precisions with intuitive functionality.
             </Typography>
             <StyledSocialMediaIconsWrapper>
-                <LinkedInIcon sx={{ color: '#FFFFFF', width: '40px', height: '40px'}}/>
-                <GitHubIcon sx={{ color: '#FFFFFF', width: '35px', height: '35px'}}/>
+                <LinkedInIcon 
+                    sx={{ color: '#FFFFFF', width: '40px', height: '40px'}}
+                    onClick={() => {
+                        window.open(
+                            'https://www.linkedin.com/in/shubham-raut-62287226a/',
+                            '_blank',
+                            'noopener,noreferrer'
+                        );
+                    }}
+                />
+                <GitHubIcon 
+                    sx={{ color: '#FFFFFF', width: '35px', height: '35px'}}
+                    onClick={() => {
+                        window.open(
+                            'https://github.com/ShubhamRaut187',
+                            '_blank',
+                            'noopener,noreferrer'
+                        );
+                    }}
+                />
             </StyledSocialMediaIconsWrapper>
             <div style={{ marginTop: '20px', marginBottom: '20px', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: '10px' }}>
                 <AppButton
                     variant='solid'
                     sx={{ height: 50, color: '#003919' }}
+                    onClick={() => {
+                        const section = document.getElementById('projects');
+                        if (section) {
+                            section.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',                                
+                            })
+                        }
+                        
+                    }}
                 >
                     View Projects&nbsp;&nbsp;
                     <ArrowRightAlt />
@@ -231,6 +256,15 @@ const Home: React.FC = () => {
                 <AppButton
                     variant='outline'
                     sx={{ height: 50 }}
+                    onClick={() => {
+                        const section = document.getElementById('contact');
+                        if (section) {
+                            section.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                            })
+                        }
+                    }}
                 >
                     Get in touch &nbsp;&nbsp;
                     <EmailOutlinedIcon />

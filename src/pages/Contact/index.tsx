@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser';
 import styled from 'styled-components';
 import PageWrapper from '../../components/PageWrapper';
 import { Typography } from '@mui/material';
@@ -18,6 +19,7 @@ const StyledContentWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     /* border: 1px solid red; */
+	/* box-sizing: border-box; */
     margin: 20px auto;
     @media screen and (min-width:768px) and (max-width:1024px){
         flex-direction: column;
@@ -29,9 +31,7 @@ const StyledContentWrapper = styled.div`
 `;
 
 const StyledConnectSocialWrapper = styled.div`
-    /* height: 300px; */
     width: 45%;
-    /* border: 1px solid white; */
     border-radius: 8px;
     background-color: #1E1F27;
     padding: 30px 30px;
@@ -50,13 +50,31 @@ const StyledConnectSocialWrapper = styled.div`
 
 const StyledConnectFromWrapper = styled.div`
     width: 45%;
-    height: 290px;
+    /* height: 400px; */
     border-radius: 20px;
     /* border: 1px solid red; */
+	/* box-sizing: border-box; */
     padding: 30px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+	& > form {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+
+		& > div {
+			width: 48%;
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			flex-direction: column;
+			height: 100% !important;
+			gap: 24px;
+			@media screen and (min-width: 320px) and (max-width: 767px) {
+				gap: 10px;
+			}
+		}
+	}
     @media screen and (min-width:768px) and (max-width:1024px){
         width: 100%;
     }
@@ -64,20 +82,6 @@ const StyledConnectFromWrapper = styled.div`
     @media screen and (min-width: 320px) and (max-width: 767px) {
         width: 100%;
         padding: 30px 0px;
-        /* border: 1px solid red; */
-    }
-    & > div {
-        width: 48%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        /* border: 1px solid red; */
-        height: 100% !important;
-        gap: 24px;
-        @media screen and (min-width: 320px) and (max-width: 767px) {
-        gap: 10px;
-    }
     }
 `;
 
@@ -156,17 +160,31 @@ const StyledTextFeildMessage = styled(TextField)`
 
 const Contact: React.FC = () => {
   // State to store form data
-  const [name, setName] = useState<string | null>(null);
-  const [email, setEmail] = useState<string | null>(null);
-  const [purpose, setPurpose] = useState<string | null>(null);
-  const [message, setMessage] = useState<string | null>(null);
-  const [formErrors, setFormErrors] = useState<object>({});
+	const [name, setName] = useState<string | null>(null);
+	const [email, setEmail] = useState<string | null>(null);
+	const [purpose, setPurpose] = useState<string | null>(null);
+	const [message, setMessage] = useState<string | null>(null);
 
-  const handleSubmit: (event: React.MouseEvent<HTMLButtonElement>)  => void = (event) => {
-    event.preventDefault();
-    console.log(name, email, purpose, message, formErrors)
-    setFormErrors({});
-  }
+	const form = useRef<HTMLFormElement>(null);
+
+	const handleSubmit =  (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		if(name === "" || email === "" || message === "" || purpose === ""){
+				alert("Fill all fields");
+				return;
+		}else{
+			if (!form.current) return;
+			emailjs.sendForm('service_ikolial', 'template_3g3n18n', form.current, 'CjdAEuzuPVuBh7-Ed')
+			.then((result) => {
+				alert("Message has been sent successfully.");
+			}, (error) => {
+			});
+		}
+		setName(null);
+		setEmail(null);
+		setPurpose(null);
+		setMessage(null);
+	}
 
   return (
     <PageWrapper>
@@ -198,13 +216,15 @@ const Contact: React.FC = () => {
                 </StyledSocialIconsContainer>
             </StyledConnectSocialWrapper>
             <StyledConnectFromWrapper>
-                <div>
+                <form ref={form} onSubmit={handleSubmit} className='appointment_form'>
+				<div>
                     <StyledTextFeild
                       required
                       id="filled-required"
                       label="Name"
                       variant="filled"
-                      onChange={ (e)=>{
+					  name="name"
+                      onChange={(e)=>{
                         setName(e.target.value);
                       } }
                     />
@@ -213,6 +233,7 @@ const Contact: React.FC = () => {
                       id="filled-required"
                       label="Email Address"
                       variant="filled"
+					  name="email"
                       onChange={ (e)=>{
                         setEmail(e.target.value);
 
@@ -223,6 +244,7 @@ const Contact: React.FC = () => {
                       id="filled-required"
                       label="Purpose"
                       variant="filled"
+					  name="purpose"
                       onChange={ (e)=>{
                         setPurpose(e.target.value);
                       } }
@@ -230,7 +252,7 @@ const Contact: React.FC = () => {
                     <AppButton
 						variant='solid'
 						sx={{ height: 50, color: '#003919', width: '100%' }}
-						onClick={handleSubmit}
+						type='submit'
 					>
 						Send Mail&nbsp;&nbsp;
 						<EmailOutlinedIcon />
@@ -242,13 +264,15 @@ const Contact: React.FC = () => {
                       id="filled-required"
                       label="Your Message"
                       variant="filled"
+					  name="message"
                       multiline
-                      rows={10}
+                      rows={11}
                       onChange={ (e)=>{
                         setMessage(e.target.value);
                       } }
                     />
                 </div>
+				</form>
             </StyledConnectFromWrapper>
         </StyledContentWrapper>
     </PageWrapper>
