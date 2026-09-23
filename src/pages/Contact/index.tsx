@@ -175,9 +175,9 @@ const Contact: React.FC = () => {
 		}else{
 			if (!form.current) return;
 			emailjs.sendForm('service_ikolial', 'template_3g3n18n', form.current, 'CjdAEuzuPVuBh7-Ed')
-			.then((result) => {
+			.then(() => {
 				alert("Message has been sent successfully.");
-			}, (error) => {
+			}, () => {
 			});
 		}
 		setName(null);
