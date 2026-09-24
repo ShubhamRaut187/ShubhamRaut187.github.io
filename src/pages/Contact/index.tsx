@@ -160,10 +160,10 @@ const StyledTextFeildMessage = styled(TextField)`
 
 const Contact: React.FC = () => {
   // State to store form data
-	const [name, setName] = useState<string | null>(null);
-	const [email, setEmail] = useState<string | null>(null);
-	const [purpose, setPurpose] = useState<string | null>(null);
-	const [message, setMessage] = useState<string | null>(null);
+	const [name, setName] = useState<string | null>('');
+	const [email, setEmail] = useState<string | null>('');
+	const [purpose, setPurpose] = useState<string | null>('');
+	const [message, setMessage] = useState<string | null>('');
 
 	const form = useRef<HTMLFormElement>(null);
 
@@ -176,14 +176,14 @@ const Contact: React.FC = () => {
 			if (!form.current) return;
 			emailjs.sendForm('service_ikolial', 'template_3g3n18n', form.current, 'CjdAEuzuPVuBh7-Ed')
 			.then(() => {
+				setName('');
+				setEmail('');
+				setPurpose('');
+				setMessage('');
 				alert("Message has been sent successfully.");
 			}, () => {
 			});
 		}
-		setName(null);
-		setEmail(null);
-		setPurpose(null);
-		setMessage(null);
 	}
 
   return (
@@ -227,6 +227,7 @@ const Contact: React.FC = () => {
                       onChange={(e)=>{
                         setName(e.target.value);
                       } }
+					  value={name}
                     />
                     <StyledTextFeild
                       required
@@ -238,6 +239,7 @@ const Contact: React.FC = () => {
                         setEmail(e.target.value);
 
                       } }
+					  value={email}
                     />
                     <StyledTextFeild
                       required
@@ -248,6 +250,7 @@ const Contact: React.FC = () => {
                       onChange={ (e)=>{
                         setPurpose(e.target.value);
                       } }
+					  value={purpose}
                     />
                     <AppButton
 						variant='solid'
@@ -270,6 +273,7 @@ const Contact: React.FC = () => {
                       onChange={ (e)=>{
                         setMessage(e.target.value);
                       } }
+					  value={message}
                     />
                 </div>
 				</form>
